@@ -10,29 +10,21 @@
                 // Set up lauout variables
                 $content = '<canvas id="game_board" width="1200px" height="1200px"></canvas>';
 
-                // Create maze layout
-                $grid_size = 40;
-                $grid_object = [];
+                // Get maze layouts
+                include('resources/maze_layouts.php');
+                
+                // Create an object with all the levels
+                $levels = 4; // User to select the number of levels
+                $level_layouts = (object) array('maze_one' => $maze_one, 'maze_two' => $maze_two, 'maze_three' => $maze_three, 'maze_four' => $maze_four);
 
-                for($y = 0; $y <= $grid_size; $y++) {
+                for($i = 1; $i <= $levels; $i++) {
                     
-                    $row_array = [];
-                    for($x = 0; $x <= $grid_size; $x++) {
-                        $block = rand(0, 1);
-                        array_push($row_array, $block);
-                    }
-
-                    // Put the finish line somewhere in the final row
-                    if($y == 40) {
-                        $finish_block = rand(1, 40);
-                        $row_array[$finish_block] = -1;
-                    } 
-
-                    $grid_object[$y] = $row_array;
                 }
-                // Make object avaliable in maze.js
+                var_dump($level_layouts);
+
+                // Pass levels object to the maze.js file
                 $content .= '<script type="text/javascript">
-                                var grid_object = '. json_encode($grid_object) . '; 
+                                var grid_object = '. json_encode($level_layouts) . '; 
                             </script>';
 
                 $script = '<script type="text/javascript" src="maze.js"></script>';
