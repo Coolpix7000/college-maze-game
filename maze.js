@@ -1,7 +1,11 @@
 var canvas = $('#game_board');
-console.log(grid_object);
+var level_count = 0;
 
-var board = grid_object;
+// Only set the board if we haven't ran anything yet
+if(level_count == 0) {
+   var board = grid_object[0];
+}
+
 
 // Always start at (0, 0)
 var player = {
@@ -50,9 +54,12 @@ function draw() {
 // Check to see if the new space is inside the board and not a wall
 function canMove(x, y) {
     // Check if we are at the finish line, then move to next level
-    if(board[y][x]) {
-        console.log('complete');
-        
+    if(board[y][x] == -1) {
+		level_count++;
+		console.log('level count: '+level_count);
+		
+		board = grid_object[level_count];
+		draw();
     }
     return (y >= 0) && (y < board.length) && (x >= 0) && (x < board[y].length) && (board[y][x] != 1);
 }
