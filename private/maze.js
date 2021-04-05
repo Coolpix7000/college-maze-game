@@ -6,7 +6,6 @@ if(level_count == 0) {
    var board = grid_object[0];
 }
 
-
 // Always start at (0, 0)
 var player = {
     x: 0,
@@ -57,7 +56,17 @@ function canMove(x, y) {
     if(board[y][x] == -1) {
 		level_count++;
 		console.log('level count: '+level_count);
-		
+        
+        if(level_count == 3) {
+            // Redirect to finish page if we have completed the game
+            window.location.href = 'http://localhost/private/maze.php?view=completed';
+        }
+
+        player = {
+            x: 0,
+            y: 0
+        };
+
 		board = grid_object[level_count];
 		draw();
     }

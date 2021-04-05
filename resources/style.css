@@ -1,1 +1,81 @@
-.grid-object { display: none;}
+* { 
+    font-family: 'Lato', sans-serif; 
+}
+
+header {
+    margin: 0px;
+    padding: 10px 20px;
+    font-size: 30;
+    color: #fff;
+    background-color: #555;
+}
+
+body {
+    background-color: #222;
+}
+
+h1 {
+    color: #fff;
+}
+
+a {
+    text-align: center;
+    color: #333;
+}
+
+a .button {
+    width: 30px;
+    padding: 10px 20px;
+    margin: 6px 0;
+    display: inline-block;
+    color: #000;
+    background-color: #888;
+    border: 1px solid #888;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.layout {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.content {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Login page */
+
+
+
+.login {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 400px;
+    color: #fff;
+    background-color:#111;
+}
+
+.login input, select {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 6px 0;
+    display: inline-block;
+    color: #000;
+    background-color: #888;
+    border: 1px solid #888;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  /* Maze */
+
+#game_board {
+
+    border: 1px solid red;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
